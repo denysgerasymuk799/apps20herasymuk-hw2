@@ -49,10 +49,10 @@ public class ImmutableArrayList implements ImmutableList{
         return addGeneral(size(), e);
     }
 
-    @Override
     /** This function works like extend function in python, so
      * it put on special position value, and values after this position
      * replace on one element next*/
+    @Override
     public ImmutableArrayList add(int index, Object e) {
         if (index < 0 || index >= arraySize) {
             throw new IndexOutOfBoundsException();
@@ -90,11 +90,11 @@ public class ImmutableArrayList implements ImmutableList{
         return addAllGeneral(size(), c);
     }
 
-    @Override
     /** This function works like extend function in python, so
      * it put on special position values from input array,
      * and values after this position
      * replace on a length of input array next*/
+    @Override
     public ImmutableArrayList addAll(int index, Object[] c) {
         if (index < 0 || index >= arraySize) {
             throw new IndexOutOfBoundsException();
