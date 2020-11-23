@@ -18,6 +18,22 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     // helper functions
+    private static class Node {
+        Object value;
+        Node next;
+        Node prev;
+
+        public Node(Node node) {
+            value = node.value;
+            next = node.next;
+            prev = node.prev;
+        }
+
+        public Node(Object value) {
+            this.value = value;
+        }
+    }
+
     private ImmutableLinkedList getCopy() {
         ImmutableLinkedList linkedList = new ImmutableLinkedList();
         linkedList.listSize = listSize;
@@ -89,10 +105,11 @@ public class ImmutableLinkedList implements ImmutableList {
     private Node getBeforeIndexNode(int index,
                                     ImmutableLinkedList newLinkedList) {
         Node curNode = newLinkedList.head;
-        index -= 1;
-        while (index > 0) {
+        int curIndex = index;
+        curIndex -= 1;
+        while (curIndex > 0) {
             curNode = curNode.next;
-            index -= 1;
+            curIndex -= 1;
         }
 
         return curNode;
@@ -192,15 +209,16 @@ public class ImmutableLinkedList implements ImmutableList {
         }
         ImmutableLinkedList newLinkedList = getCopy();
         Node curNode = newLinkedList.head;
+        int curIndex = index;
 
-        if (index == 0) {
+        if (curIndex == 0) {
             newLinkedList.head = newLinkedList.head.next;
         }
         else {
-            index -= 1;
-            while (index > 0) {
+            curIndex -= 1;
+            while (curIndex > 0) {
                 curNode = curNode.next;
-                index -= 1;
+                curIndex -= 1;
             }
 
             // remove curNode.next - node on index

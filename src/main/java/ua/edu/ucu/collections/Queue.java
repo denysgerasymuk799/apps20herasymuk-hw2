@@ -23,7 +23,7 @@ public class Queue {
         return item;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return queue.isEmpty();
     }
 }

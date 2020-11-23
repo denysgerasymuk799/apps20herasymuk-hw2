@@ -42,12 +42,6 @@ public class ImmutableLinkedListTest {
         ImmutableList newImmutableLinked = new ImmutableLinkedList();
     }
 
-    @Test
-    public void testNode() {
-        Node newNode = new Node();
-        assertNull(newNode.value);
-    }
-
     /** ========================= Tests for Add ========================= **/
     @Test
     public void testLinkedAdd() {

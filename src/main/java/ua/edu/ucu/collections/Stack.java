@@ -23,7 +23,7 @@ public class Stack {
         return item;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return stack.isEmpty();
     }
 }
