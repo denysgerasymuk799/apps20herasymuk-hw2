@@ -1,5 +1,9 @@
 package ua.edu.ucu.collections.immutable;
 
+
+import javax.naming.SizeLimitExceededException;
+import java.util.ArrayList;
+
 // У результаті змін, що призводять на модифікації (зміну стану) колекції має повртатись нова колекція
 public interface ImmutableList {
 
@@ -27,6 +31,5 @@ public interface ImmutableList {
 
     Object[] toArray(); //перетворює колекцію до масиву обєктів
 
-    @Override
     String toString(); //повертає рядок, де через кому відображаютсься елементи колекції
 }
