@@ -62,6 +62,13 @@ public class ImmutableArrayListTest {
         assertArrayEquals(newImmutableArray3.toArray(), expectedLittle);
     }
 
+    @Test
+    public void testArrayAddEmpty() {
+        ImmutableList newImmutableArray = emptyImmutableArray.add("abc");
+
+        assertArrayEquals(new Object[]{"abc"}, newImmutableArray.toArray());
+    }
+
     @Test(expected = NullPointerException.class)
     public void testArrayAddNull() {
         ImmutableList newImmutableArray = littleImmutableArray.add(null);
@@ -127,6 +134,13 @@ public class ImmutableArrayListTest {
     @Test(expected = IllegalArgumentException.class)
     public void testArrayAddAllEmpty() {
         ImmutableList newImmutableArray = littleImmutableArray.addAll(new Object[]{});
+    }
+
+    @Test
+    public void testArrayAddAllEmpty2() {
+        ImmutableList newImmutableArray = emptyImmutableArray.addAll(new Object[]{"abc", 0});
+
+        assertArrayEquals(new Object[]{"abc", 0}, newImmutableArray.toArray());
     }
 
     /** ========================= Tests for AddAll with index ========================= **/
@@ -255,6 +269,11 @@ public class ImmutableArrayListTest {
     @Test
     public void testArrayIndexOfNoItem() {
         assertEquals(-1, littleImmutableArray.indexOf(45.5));
+    }
+
+    @Test
+    public void testArrayIndexOfNoItemEmpty() {
+        assertEquals(-1, emptyImmutableArray.indexOf(45.5));
     }
 
     @Test
