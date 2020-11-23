@@ -19,9 +19,9 @@ public class ImmutableLinkedList implements ImmutableList {
 
     // helper functions
     private static class Node {
-        Object value;
-        Node next;
-        Node prev;
+        private Object value;
+        private Node next;
+        private Node prev;
 
         public Node(Node node) {
             value = node.value;

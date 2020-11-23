@@ -4,7 +4,7 @@ package ua.edu.ucu.collections.immutable;
 import java.util.Arrays;
 
 
-public class ImmutableArrayList implements ImmutableList{
+public class ImmutableArrayList implements ImmutableList {
     private Object[] immutableArray;
     private int arraySize = 0;
 
