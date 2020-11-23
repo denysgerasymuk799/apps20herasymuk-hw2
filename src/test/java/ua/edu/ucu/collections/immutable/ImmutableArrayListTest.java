@@ -48,7 +48,7 @@ public class ImmutableArrayListTest {
         ImmutableList newImmutableArray = littleImmutableArray.add("abc");
 
         assertNotEquals(newImmutableArray.toArray(), littleImmutableArray.toArray());
-        assertEquals(littleImmutableArray.toArray(), littleImmutableArray.toArray());
+        assertArrayEquals(littleImmutableArray.toArray(), littleImmutableArray.toArray());
 
         ImmutableList newImmutableArray2 = newImmutableArray.add(1.8);
         ImmutableList newImmutableArray3 = newImmutableArray2.add("3");
@@ -59,7 +59,7 @@ public class ImmutableArrayListTest {
         expectedLittle[littleImmutableArray.size() + 1] = 1.8;
         expectedLittle[littleImmutableArray.size() + 2] = "3";
 
-        assertEquals(newImmutableArray3.toArray(), expectedLittle);
+        assertArrayEquals(newImmutableArray3.toArray(), expectedLittle);
     }
 
     @Test(expected = NullPointerException.class)
@@ -104,7 +104,7 @@ public class ImmutableArrayListTest {
 
         ImmutableList newImmutableArray = littleImmutableArray.addAll(newItem);
 
-        assertEquals(newImmutableArray.toArray(), expectedBig);
+        assertArrayEquals(newImmutableArray.toArray(), expectedBig);
 
         // other test
         Object[] expectedBig2000 = new Object[littleImmutableArray.size() + 2000];
@@ -116,7 +116,7 @@ public class ImmutableArrayListTest {
 
         ImmutableList newImmutableArray2 = newImmutableArray.addAll(newItem);
 
-        assertEquals(newImmutableArray2.toArray(), expectedBig2000);
+        assertArrayEquals(newImmutableArray2.toArray(), expectedBig2000);
     }
 
     @Test(expected = NullPointerException.class)
@@ -146,7 +146,7 @@ public class ImmutableArrayListTest {
 
         ImmutableList newImmutableArray = littleImmutableArray.addAll(inputPosition, newItem);
 
-        assertEquals(expectedBig, newImmutableArray.toArray());
+        assertArrayEquals(expectedBig, newImmutableArray.toArray());
 
 
         // other test
@@ -166,7 +166,7 @@ public class ImmutableArrayListTest {
 
         ImmutableList newImmutableArray2 = newImmutableArray.addAll(inputPosition, newItem);
 
-        assertEquals(expected, newImmutableArray2.toArray());
+        assertArrayEquals(expected, newImmutableArray2.toArray());
     }
 
     @Test
@@ -176,7 +176,7 @@ public class ImmutableArrayListTest {
         ImmutableList newImmutableArray2 = threeElemImmutableArray.addAll(inputPosition,
                 new Object[]{"22", 33});
 
-        assertEquals(new Object[]{"123", "45", "22", 33, 56},
+        assertArrayEquals(new Object[]{"123", "45", "22", 33, 56},
                 newImmutableArray2.toArray());
     }
 
@@ -216,10 +216,10 @@ public class ImmutableArrayListTest {
     @Test
     public void testArrayRemove() {
         ImmutableList newImmutableArray2 = fourElemImmutableArray.remove(1);
-        assertEquals(new Object[]{"123", 56, 78}, newImmutableArray2.toArray());
+        assertArrayEquals(new Object[]{"123", 56, 78}, newImmutableArray2.toArray());
 
         newImmutableArray2 = newImmutableArray2.remove(1);
-        assertEquals(new Object[]{"123", 78}, newImmutableArray2.toArray());
+        assertArrayEquals(new Object[]{"123", 78}, newImmutableArray2.toArray());
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
@@ -237,11 +237,11 @@ public class ImmutableArrayListTest {
     @Test
     public void testArraySet() {
         ImmutableList newImmutableArray2 = fourElemImmutableArray.set(1, "hello");
-        assertEquals(new Object[]{"123", "hello", 56, 78},
+        assertArrayEquals(new Object[]{"123", "hello", 56, 78},
                 newImmutableArray2.toArray());
 
         newImmutableArray2 = newImmutableArray2.set(2, 45.5);
-        assertEquals(new Object[]{"123", "hello", 45.5, 78},
+        assertArrayEquals(new Object[]{"123", "hello", 45.5, 78},
                 newImmutableArray2.toArray());
     }
 
@@ -279,7 +279,7 @@ public class ImmutableArrayListTest {
     public void testArrayClear() {
         ImmutableList newImmutableArray = new ImmutableArrayList();
         assertEquals(newImmutableArray.size(), littleImmutableArray.clear().size());
-        assertEquals(newImmutableArray.toArray(), littleImmutableArray.clear().toArray());
+        assertArrayEquals(newImmutableArray.toArray(), littleImmutableArray.clear().toArray());
     }
 
 
@@ -287,7 +287,7 @@ public class ImmutableArrayListTest {
     public void testArrayClearEmpty() {
         ImmutableList newImmutableArray = new ImmutableArrayList();
         assertEquals(newImmutableArray.size(), emptyImmutableArray.clear().size());
-        assertEquals(newImmutableArray.toArray(), emptyImmutableArray.clear().toArray());
+        assertArrayEquals(newImmutableArray.toArray(), emptyImmutableArray.clear().toArray());
     }
 
 
@@ -307,13 +307,13 @@ public class ImmutableArrayListTest {
     /** ========================= Tests for ToArray ========================= **/
     @Test
     public void testArrayToArray() {
-        assertEquals(new Object[]{"123", "45"}, littleImmutableArray.toArray());
+        assertArrayEquals(new Object[]{"123", "45"}, littleImmutableArray.toArray());
     }
 
 
     @Test
     public void testArrayToArrayForEmpty() {
-        assertEquals(new Object[]{}, emptyImmutableArray.toArray());
+        assertArrayEquals(new Object[]{}, emptyImmutableArray.toArray());
     }
 
 

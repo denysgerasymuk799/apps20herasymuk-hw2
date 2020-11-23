@@ -52,19 +52,19 @@ public class ImmutableLinkedListTest {
     @Test
     public void testLinkedAdd() {
         ImmutableList newImmutableLinked = threeItemsImmutableLinked.add("abc");
-        assertEquals(new Object[]{"12", "34", 56.7, "abc"}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{"12", "34", 56.7, "abc"}, newImmutableLinked.toArray());
     }
 
     @Test
     public void testLinkedAddOneItem() {
         ImmutableList newImmutableLinked = oneItemImmutableLinked.add("abc");
-        assertEquals(new Object[]{"12", "abc"}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{"12", "abc"}, newImmutableLinked.toArray());
     }
 
     @Test
     public void testLinkedAddEmpty() {
         ImmutableList newImmutableLinked = emptyImmutableLinked.add("abc");
-        assertEquals(new Object[]{"abc"}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{"abc"}, newImmutableLinked.toArray());
     }
 
     @Test(expected = NullPointerException.class)
@@ -77,25 +77,25 @@ public class ImmutableLinkedListTest {
     @Test
     public void testLinkedAddIndexPos0() {
         ImmutableList newImmutableLinked = threeItemsImmutableLinked.add(0, "abc");
-        assertEquals(new Object[]{"abc", "12", "34", 56.7}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{"abc", "12", "34", 56.7}, newImmutableLinked.toArray());
     }
 
     @Test
     public void testLinkedAddIndexOneItem() {
         ImmutableList newImmutableLinked = oneItemImmutableLinked.add(0, "abc");
-        assertEquals(new Object[]{"abc", "12"}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{"abc", "12"}, newImmutableLinked.toArray());
     }
 
     @Test
     public void testLinkedAddIndexPos1() {
         ImmutableList newImmutableLinked = threeItemsImmutableLinked.add(1, "abc");
-        assertEquals(new Object[]{"12", "abc", "34", 56.7}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{"12", "abc", "34", 56.7}, newImmutableLinked.toArray());
     }
 
     @Test
     public void testLinkedAddIndexPosLast() {
         ImmutableList newImmutableLinked = threeItemsImmutableLinked.add(2, "abc");
-        assertEquals(new Object[]{"12", "34", "abc", 56.7}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{"12", "34", "abc", 56.7}, newImmutableLinked.toArray());
     }
 
     @Test(expected = NullPointerException.class)
@@ -116,7 +116,7 @@ public class ImmutableLinkedListTest {
             inputArr[i] = String.valueOf(i + 1);
         }
         ImmutableList newImmutableLinked = threeItemsImmutableLinked.addAll(inputArr);
-        assertEquals(new Object[]{"12", "34", 56.7, "1", "2",
+        assertArrayEquals(new Object[]{"12", "34", 56.7, "1", "2",
                 "3", "4", "5", "6"}, newImmutableLinked.toArray());
     }
 
@@ -128,7 +128,7 @@ public class ImmutableLinkedListTest {
         }
         ImmutableList newImmutableLinked = eightItemsImmutableLinked.addAll(inputArr);
 
-        assertEquals(new Object[]{"1", "2", "3", "4", "5",
+        assertArrayEquals(new Object[]{"1", "2", "3", "4", "5",
                         "6", "7", "12",
                         "1", "1", "1", "1", "1", "1",}, newImmutableLinked.toArray());
     }
@@ -141,14 +141,14 @@ public class ImmutableLinkedListTest {
         }
         ImmutableList newImmutableLinked = emptyImmutableLinked.addAll(inputArr);
 
-        assertEquals(new Object[]{"2", "2", "2", "2", "2", "2"},
+        assertArrayEquals(new Object[]{"2", "2", "2", "2", "2", "2"},
                 newImmutableLinked.toArray());
     }
 
     @Test
     public void testLinkedAddAllOneItem() {
         ImmutableList newImmutableLinked = oneItemImmutableLinked.addAll(new Object[]{"abc", 0});
-        assertEquals(new Object[]{"12", "abc", 0}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{"12", "abc", 0}, newImmutableLinked.toArray());
     }
 
 
@@ -171,7 +171,7 @@ public class ImmutableLinkedListTest {
             inputArr[i] = String.valueOf(i + 1);
         }
         ImmutableList newImmutableLinked = threeItemsImmutableLinked.addAll(2, inputArr);
-        assertEquals(new Object[]{"12", "34", "1", "2",
+        assertArrayEquals(new Object[]{"12", "34", "1", "2",
                 "3", "4", "5", "6", 56.7}, newImmutableLinked.toArray());
     }
 
@@ -183,7 +183,7 @@ public class ImmutableLinkedListTest {
         }
         ImmutableList newImmutableLinked = eightItemsImmutableLinked.addAll(5, inputArr);
 
-        assertEquals(new Object[]{"1", "2", "3", "4", "5",
+        assertArrayEquals(new Object[]{"1", "2", "3", "4", "5",
                         "1", "1", "1", "1", "1", "1",
                         "6", "7", "12"}, newImmutableLinked.toArray());
     }
@@ -196,7 +196,7 @@ public class ImmutableLinkedListTest {
         }
         ImmutableList newImmutableLinked = eightItemsImmutableLinked.addAll(1, inputArr);
 
-        assertEquals(new Object[]{"1", "1", "1", "1", "1", "1", "1",
+        assertArrayEquals(new Object[]{"1", "1", "1", "1", "1", "1", "1",
                         "2", "3", "4", "5",
                         "6", "7", "12"}, newImmutableLinked.toArray());
     }
@@ -209,7 +209,7 @@ public class ImmutableLinkedListTest {
         }
         ImmutableList newImmutableLinked = eightItemsImmutableLinked.addAll(0, inputArr);
 
-        assertEquals(new Object[]{"2", "2", "2", "2", "2", "2", "1",
+        assertArrayEquals(new Object[]{"2", "2", "2", "2", "2", "2", "1",
                         "2", "3", "4", "5",
                         "6", "7", "12"}, newImmutableLinked.toArray());
     }
@@ -222,7 +222,7 @@ public class ImmutableLinkedListTest {
         }
         ImmutableList newImmutableLinked = oneItemImmutableLinked.addAll(0, inputArr);
 
-        assertEquals(new Object[]{"2", "2", "2", "2", "2", "2", "12"},
+        assertArrayEquals(new Object[]{"2", "2", "2", "2", "2", "2", "12"},
                 newImmutableLinked.toArray());
     }
 
@@ -278,14 +278,14 @@ public class ImmutableLinkedListTest {
     @Test
     public void testLinkedRemovePos0() {
         ImmutableList newImmutableLinked = threeItemsImmutableLinked.remove(0);
-        assertEquals(new Object[]{"34", 56.7}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{"34", 56.7}, newImmutableLinked.toArray());
     }
 
     @Test
     public void testLinkedRemovePosLast() {
         ImmutableList newImmutableLinked = eightItemsImmutableLinked.remove(7);
 
-        assertEquals(new Object[]{"1", "2", "3", "4",
+        assertArrayEquals(new Object[]{"1", "2", "3", "4",
                 "5", "6", "7"}, newImmutableLinked.toArray());
     }
 
@@ -293,7 +293,7 @@ public class ImmutableLinkedListTest {
     public void testLinkedRemovePosMiddle() {
         ImmutableList newImmutableLinked = eightItemsImmutableLinked.remove(1);
 
-        assertEquals(new Object[]{"1", "3", "4", "5",
+        assertArrayEquals(new Object[]{"1", "3", "4", "5",
                         "6", "7", "12"}, newImmutableLinked.toArray());
     }
 
@@ -301,14 +301,14 @@ public class ImmutableLinkedListTest {
     public void testLinkedRemoveOneItem() {
         ImmutableList newImmutableLinked = oneItemImmutableLinked.remove(0);
 
-        assertEquals(new Object[]{}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{}, newImmutableLinked.toArray());
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void testLinkedRemoveEmpty() {
         ImmutableList newImmutableLinked = emptyImmutableLinked.remove(0);
 
-        assertEquals(new Object[]{}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{}, newImmutableLinked.toArray());
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
@@ -320,14 +320,14 @@ public class ImmutableLinkedListTest {
     @Test
     public void testLinkedSetPos0() {
         ImmutableList newImmutableLinked = threeItemsImmutableLinked.set(0, 0);
-        assertEquals(new Object[]{0, "34", 56.7}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{0, "34", 56.7}, newImmutableLinked.toArray());
     }
 
     @Test
     public void testLinkedSetPosLast() {
         ImmutableList newImmutableLinked = eightItemsImmutableLinked.set(7, 0);
 
-        assertEquals(new Object[]{"1", "2", "3", "4",
+        assertArrayEquals(new Object[]{"1", "2", "3", "4",
                 "5", "6", "7", 0}, newImmutableLinked.toArray());
     }
 
@@ -335,7 +335,7 @@ public class ImmutableLinkedListTest {
     public void testLinkedSetPosMiddle() {
         ImmutableList newImmutableLinked = eightItemsImmutableLinked.set(1, 0);
 
-        assertEquals(new Object[]{"1", 0, "3", "4", "5",
+        assertArrayEquals(new Object[]{"1", 0, "3", "4", "5",
                         "6", "7", "12"}, newImmutableLinked.toArray());
     }
 
@@ -343,7 +343,7 @@ public class ImmutableLinkedListTest {
     public void testLinkedSetOneItem() {
         ImmutableList newImmutableLinked = oneItemImmutableLinked.set(0, '1');
 
-        assertEquals(new Object[]{'1'}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{'1'}, newImmutableLinked.toArray());
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
@@ -405,14 +405,14 @@ public class ImmutableLinkedListTest {
     public void testClear() {
         ImmutableList im = threeItemsImmutableLinked.clear();
         assertEquals(0, im.size());
-        assertEquals(new Object[]{}, im.toArray());
+        assertArrayEquals(new Object[]{}, im.toArray());
     }
 
     @Test
     public void testClear2() {
         ImmutableList im = emptyImmutableLinked.clear();
         assertEquals(0, im.size());
-        assertEquals(new Object[]{}, im.toArray());
+        assertArrayEquals(new Object[]{}, im.toArray());
     }
 
     /** ========================= Tests for IsEmpty ========================= **/
@@ -439,35 +439,35 @@ public class ImmutableLinkedListTest {
     @Test
     public void testToArray() {
         Object[] arr = threeItemsImmutableLinked.toArray();
-        assertEquals(new Object[]{"12", "34", 56.7}, threeItemsImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{"12", "34", 56.7}, threeItemsImmutableLinked.toArray());
     }
 
     /** ========================= Tests for AddFirst ========================= **/
     @Test
     public void testAddFirst() {
         ImmutableLinkedList newImmutableLinked = threeImmutableLinkedList.addFirst(1);
-        assertEquals(new Object[]{1, "12", "34", 56.7}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{1, "12", "34", 56.7}, newImmutableLinked.toArray());
     }
 
     /** ========================= Tests for AddLast ========================= **/
     @Test
     public void testAddLast() {
         ImmutableLinkedList newImmutableLinked = threeImmutableLinkedList.addLast(1);
-        assertEquals(new Object[]{"12", "34", 56.7, 1}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{"12", "34", 56.7, 1}, newImmutableLinked.toArray());
     }
 
     /** ========================= Tests for RemoveFirst ========================= **/
     @Test
     public void testRemoveFirst() {
         ImmutableLinkedList newImmutableLinked = threeImmutableLinkedList.removeFirst();
-        assertEquals(new Object[]{"34", 56.7}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{"34", 56.7}, newImmutableLinked.toArray());
     }
 
     /** ========================= Tests for RemoveLast ========================= **/
     @Test
     public void testRemoveLast() {
         ImmutableLinkedList newImmutableLinked = threeImmutableLinkedList.removeLast();
-        assertEquals(new Object[]{"12", "34"}, newImmutableLinked.toArray());
+        assertArrayEquals(new Object[]{"12", "34"}, newImmutableLinked.toArray());
     }
 
     /** ========================= Tests for GetFirst ========================= **/
